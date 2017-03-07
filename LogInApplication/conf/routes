@@ -15,6 +15,6 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 #Route to WelcomeController showing welcome page
 GET     /welcome                    controllers.WelcomeController.welcome
 
-GET     /login                      controllers.LogInController.logIn
+POST     /login                      controllers.LogInController.logIn
 
-GET     /signup                     controllers.SignUpController.signUp
+POST     /signup                     controllers.SignUpController.signUp

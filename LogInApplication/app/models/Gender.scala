@@ -1,6 +1,6 @@
 package models
 
-sealed abstract class Gender(val genderValue: String)
+sealed abstract case class Gender(val genderValue: String)
 
-case object Female extends Gender(genderValue = "female")
-case object Male extends Gender(genderValue = "male")
+object Female extends Gender(genderValue = "female")
+object Male extends Gender(genderValue = "male")

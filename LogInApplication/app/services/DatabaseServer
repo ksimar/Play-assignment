@@ -1,14 +1,26 @@
 package services
 
+import javax.inject._
 import scala.collection.mutable.ListBuffer
-import models.Person
+import models.{Credentials, Person}
 
-class DatabaseServer {
+@Singleton
+class DatabaseServer @Inject() {
 
-   val dataList:ListBuffer[Person] = ListBuffer[Person].empty
+   val dataList:List[Person] = List.empty
 
-  def validateUser(credentials: Credentials) = {
-    val list = dataList map(data => (data.name))
+   def validatePerson(credentials: Credentials): Boolean = {
+    val list = dataList filter(data => (data.credentials.userName == credentials.userName
+      && data.credentials.password == credentials.password))
+     if(list.isEmpty) false
+     if(list.size == 1) true
+     else {
+       throw new Exception("Should not happen - duplicate userName found")
+     }
+  }
+
+  def addPerson(person: Person) = {
+    dataList :+ person
   }
 
 }
