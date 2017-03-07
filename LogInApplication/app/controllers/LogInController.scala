@@ -1,8 +1,9 @@
 package controllers
 
-import play.api.mvc.{Controller, Action}
+import com.google.inject
+import play.api.mvc.{Action, Controller}
 
-class LogInController extends Controller {
+class LogInController @inject.Inject() extends Controller {
 
   def logIn = Action {
     Ok(views.html.logIn())

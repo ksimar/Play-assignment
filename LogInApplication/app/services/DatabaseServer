@@ -1,0 +1,14 @@
+package services
+
+import scala.collection.mutable.ListBuffer
+import models.Person
+
+class DatabaseServer {
+
+   val dataList:ListBuffer[Person] = ListBuffer[Person].empty
+
+  def validateUser(credentials: Credentials) = {
+    val list = dataList map(data => (data.name))
+  }
+
+}
